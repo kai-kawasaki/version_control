@@ -8,7 +8,7 @@ def main():
             encoded = encode_pass(password)
             print(f"The encoded password is:{encoded}")
         elif selection == "2":
-            decode_pass(encoded)
+            print(decode_pass(encoded))
         elif selection == "3":
             run = False
 
@@ -17,12 +17,19 @@ def encode_pass(password):
     output = 0
     for i in range(len(password)):
         output += ((int(password[i]) + 3) % 10) * (10 ** (len(password) - i - 1))
-    return output
+    return str(output)
 
 
 def decode_pass(password):
-    print("put code here")
+    encodedPassword = ""
+    for digit in password:
+        digitShift = str((int(digit) - 3) % 10)
+        encodedPassword += digitShift
+
+    return encodedPassword
+
 
 
 if __name__ == "__main__":
     main()
+
