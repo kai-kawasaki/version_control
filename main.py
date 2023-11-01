@@ -1,6 +1,7 @@
+# Kai Vedder
 def main():
     run = True
-    while run == True:
+    while run:
         print("1. Encode\n2. Decode\n3.Quit")
         selection = input("Select an option")
         if selection == "1":
@@ -8,7 +9,7 @@ def main():
             encoded = encode_pass(password)
             print(f"The encoded password is:{encoded}")
         elif selection == "2":
-            print(decode_pass(encoded))
+            print(f"Your decoded password is:{decode_pass(encoded)}")
         elif selection == "3":
             run = False
 
@@ -27,7 +28,6 @@ def decode_pass(password):
         encodedPassword += digitShift
 
     return encodedPassword
-
 
 
 if __name__ == "__main__":
